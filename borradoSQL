@@ -1,0 +1,24 @@
+<?php
+
+    include 'conn.php';
+
+    $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+
+    // Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+    
+    // Query to check if the email already exist
+    $registros = "SELECT * FROM users ";
+
+    // Variable $result hold the connection data and the query
+    $result = $conn-> query($registros);
+
+    // Variable $count hold the result of the query
+    $count = mysqli_num_rows($result);
+
+$sSQL="Delete From Clientes Where nombre='{$_POST["nombre"]}'";
+mysql_query($sSQL);
+
+?>
